@@ -1,0 +1,72 @@
+/* Global */
+.xinfan-detail a { border-radius: 5px; color: white; font-size: 8pt; letter-spacing: 0pt !important; padding: 2px 7px; text-align: left; text-decoration: none;}
+body { background: white; font-family: "Century Gothic", "Segoe UI",Arial, "Microsoft YaHei",Sans-Serif; margin: 0;}
+.variableHeight {
+	min-height: 600px;
+}
+html, body{
+	width: 100%;
+	height: 100%;
+}
+
+/* Day Title */
+.week-day { height: 100%; overflow: hidden; width: 100%;}
+.week-title1 { background: rgb(82,82,82); box-shadow: 0 0 8px 5px rgba(53,53,53,.43); color: rgb(255,255,255); height: 180px; overflow: hidden; text-shadow: 0px 0px 20px rgb(0,0,0); width: 100%; z-index: 10;}
+.week-title1 > div { display: inline-block; height: 80px; line-height: 70px; margin: 65px 0; text-align: center; width: 100%;}
+.week-title1 h1 { font-size: 60pt; margin: 0;}
+
+/* Right Side Title */
+.week-sidetitle { background: rgba(45,45,45,.4); box-shadow: -6px 0px 10px 0px rgba(0,0,0,.5); overflow: hidden; pointer-events: none; position: absolute; right: 20px; transition: right 1s ease .2s; white-space: nowrap; width: 60px; z-index: 5;}
+.week-sidetitle h2 { color: rgba(255,255,255,.95); margin: 0; -moz-transform: rotate(90deg); padding: 10px; text-shadow: 0px 0px 4px rgba(0,0,0,.4); transform: rotate(90deg); transition: all .4s cubic-bezier(0,.8,.85,1.07); -webkit-transform: rotate(90deg);}
+
+/* Content */
+.xinfan-list { background: rgba(255,255,255,.4); height: auto; overflow: hidden; position: absolute; width: 100%; z-index: 0;}
+	/** List **/
+.xinfan-cellblock { display: block; float: left; height: 260px; margin: 20px; width: 180px;}
+	/** img **/
+.xinfan-img { background-size: cover !important; box-shadow: 0 0 5px rgba(0,0,0,.8); height: 260px; transition: all 1s ease; width: 180px;}
+.xinfan-detail .xinfan-img { height: 200px; width: 200px;}
+.xinfan-imgfilter { background: rgb(52,52,52); box-shadow: 0 0 5px rgba(0,0,0,.8);}
+.xinfan-imgfilter:hover > .xinfan-img { opacity: .2;}
+.xinfan-img-lock { opacity: .2;}
+	/** Detail **/
+.xinfan-detail { background: rgba(255,255,255,.8); border: 1px solid black; box-shadow: 0 0 6px 1px rgba(0,0,0,.7),0 0 12px 0px rgba(255,255,255,.5) inset; display: none; height: 350px; left: calc( 50% - 220px ); letter-spacing: 1.2pt; padding: 20px; position: fixed; transition: all .6s ease !important; width: 400px; z-index: 50; top: calc( 50% - 175px);}
+.xinfan-showdetail { display: block !important;}
+.xinfan-detail-close { border-radius: 100%; cursor: pointer; font-size: 10pt; font-weight: bolder; padding: 0px .13em .1em .3em; position: absolute; right: 10px; text-align: right; top: 10px; transition: all .3s ease;}
+.xinfan-detail-close:hover { background: #525252; color: white;}
+.xinfan-detail a.offical { background: #525252;}
+		/*** Name ***/
+.xinfan-CNname:before { content: '譯名 : '; font-size: 10pt;}
+.xinfan-JPname:before { content: '原名 : '; font-size: 10pt;}
+.xinfan-Releasetime:before { content: '放送 : '; font-size: 10pt; font-weight: normal; letter-spacing: 1.2pt;}
+.xinfan-Releasetime:after { content: ' (UTC+9)'; font-size: 10pt; font-weight: normal; letter-spacing: 1.2pt;}
+.xinfan-CNname, .xinfan-JPname, .xinfan-Releasetime { border-bottom: 1px dashed black; vertical-align: bottom;}
+.xinfan-Releasetime { font-weight: bold; letter-spacing: 0pt;}
+
+/* Nav */
+#navbar { background: rgba(255,255,255,.8); box-shadow: 0 0 5px rgba(0,0,0,.8); font-size: 8pt; height: 20px; left: 0; overflow: hidden; padding: 4px 10px; position: fixed; text-shadow: 0 0 5px rgba(0,0,0,.5); top: 0; width: calc(100% - 20px); z-index: 8;}
+.nav-day { left: 0; padding-left: 20px; position: absolute; z-index: 10;}
+.nav-day> span { cursor: pointer;}
+.nav-text { position: absolute; right: 0;}
+	/** Text **/
+.gd-001 { background: url(../src/drive.png) right no-repeat; background-size: contain; color: white; margin-right: 10px; padding-right: 23px;}
+.gd-002 { bottom: 5px; color: white; font-size: 8pt; position: fixed; right: 90px; text-shadow: 0 0 10px rgba(0,0,0,.8); vertical-align: bottom; z-index: -1;}
+
+/* Panel */
+#panel { background: rgba(82, 82, 82, .5); box-shadow: -2px 0px 10px 0px rgba(0,0,0,.5); height: 100%; position: fixed; right: -200px; top: 0; transition: all 1s ease .2s; width: 220px; z-index: 7;}
+#panelcontrol { background: url(../src/control.png) no-repeat; background-position: -20px 50%; float: left; height: 100%; transition: all 2s ease .1s; width: 20px;}
+#addNew { color: rgba(255,255,255,.8); float: right; padding-top: 30px; text-align: center; width: 200px;}
+.required { color: red; font-size: 8pt; vertical-align: super;}
+#addNew input { background: transparent; border: none; border-bottom: 1px solid #42d3ff; color: rgba(255,255,255,.85); font-size: 8pt;}
+#addNew label { color: rgba(255,255,255,.8); font-size: 10pt;}
+span#submit { background: rgba(255,255,255,.8); box-shadow: 0px 0px 3px 2px rgba(60, 60, 60, .4); color: rgba(5,5,5,.9); font-size: 10pt; padding: 3px 20px 3px 20px;}
+#disqus_thread { padding: 100px;}
+
+/* footer */
+footer { bottom: 0px;position: fixed;transition: all .5s cubic-bezier(0,.5,.8,.62) .2s;width: 490px;}
+footer > div { float: left;margin: 6px;}
+	/** FTPG **/
+.ftpg { height: 20px;width: 468px;float:left; vertical-align: top;}
+.ftpg > div { cursor: pointer;float: left;height: 23px;width: auto;}
+.plurk { background: url(../src/plurk.png) no-repeat; width:65px !important; height:20px; margin:0 10px 0 0;}
+#Ad {background: url(../src/adblock.png) no-repeat; border: 1px dashed #525252;}

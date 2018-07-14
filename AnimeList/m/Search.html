@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>番組搜尋-M</title>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<style type="text/css">
+body{
+    margin:0;
+    font-family: 'Quicksand',"Century Gothic", "Segoe UI",Arial, "Microsoft YaHei",Sans-Serif;
+    
+    letter-spacing: 1pt;
+}
+button { 
+    background: transparent;
+    text-align:center;
+    margin:0;
+    border: none;
+}
+
+input[name='key'] {
+    background: transparent;
+    border: none;
+    color:white;
+    padding:10px 1%;
+    border-radius:0 0;
+} 
+.hide {
+    display:none;
+}
+.focus {
+    background: rgba(255,255,255,.3);
+}
+button#more{
+    background: rgba(177, 177, 177, 0.17);
+    width:100%;
+    height:40px;
+    display:none;
+}
+button#more:hover{
+    background: rgba(100, 100, 100, 0.3);
+}
+
+nav {
+    background:black;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:40px;
+    z-index:10;
+}
+nav > button {
+    width: 15%;
+    height:40px;
+    border: none;
+    color: white;
+}
+nav> button:hover {
+    background: rgba(255,255,255,.3);
+}
+nav > input[name='key'] {
+    width:68%;
+    background: rgba(255,255,255,.3);
+    height:20px;
+}
+
+#panel {
+    color:white;
+    background:black;
+    position:fixed;
+    left:0;
+    right:0;
+    padding:10px 0;
+    top:0px;
+    bottom:100%;
+    transition:all 2s cubic-bezier(0,.92,.6,.99);
+    overflow:hidden;
+    text-align:center;
+    z-index: 5;
+}
+#panel.show {
+    top:40px;
+    bottom:0;
+}
+#panel p {
+    max-width:300px;
+    width:100%;
+    margin: 10px auto;
+}
+label{
+}
+select {
+    width:100%;
+    text-align:right;
+}
+h1 {
+    font-weight: normal;
+}
+
+article {
+    position:fixed;
+    top:40px;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow-y:auto;
+}
+
+#search_result{
+    display: table;
+    width: 100%;
+}
+.result_tr{
+    display: table-row;
+    font-size: 10pt;
+    letter-spacing: 0pt;
+}
+.result_tr:nth-child(n){
+    background: rgb(247, 247, 247);
+}
+.result_tr:nth-child(5n+1){
+    background: #eee;
+}
+.result_tr:first-child {
+    text-align: center;
+    letter-spacing: 10pt;
+}
+.result_tr:hover{
+    background-color: #D6D6D6;
+}
+.result_tr:hover a[target='_blank'] {
+    color: black;
+    font-weight: bold;
+    letter-spacing: 0pt;
+    padding-left: 1%;
+}
+.result_td{
+    display: table-cell;
+    border-bottom: .1em solid rgba(119, 119, 119, 0.2);
+    padding: 5px 11px;
+}
+.resource {
+    width: 60px;
+}
+.magnet {
+    vertical-align:middle;
+    text-align:center;
+    width: 20px;
+    padding: 0 !important;
+}
+a[target='_self'] > div {
+    font-size: 16pt;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    margin-top: -1px;
+}
+.timestamp {
+    width: 226px;
+}
+footer{
+    padding: 10px 0px 10px 10px;
+    font-size: 10pt;
+}
+footer > li {
+    list-style: none;
+    padding-left: 3px;
+}
+footer > li:before{
+    content: " - ";
+}
+footer ul{
+    margin: 0 0 10px;
+}
+a {
+    text-decoration: none;
+    color: rgba(63, 63, 63, 0.82);
+    font-weight: normal;
+}
+h2:before {
+    content: '◆ ';
+}
+#Ad {
+    background: url(src/adblock.png) no-repeat; 
+    border: 1px dashed #525252;
+    position:fixed;
+    bottom:0;
+    left:0;
+    z-index:10;
+}
+#disqus_thread {
+    padding: 20px 10px 80px;
+}
+</style>
+        <!-- API Loaded-->
+        <script type="text/javascript" src="js/jquery-2.0.2.js"></script>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script type="text/javascript" src='//www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1"}]}'></script>
+        <script type="text/javascript">
+        //<![CDATA[ 
+$(window).load(function(){
+    var config = {
+        pkey    : '0AvMyOkgICwgBdGRDUUVmNjdENFJhcnBIV2YyOGltb3c',
+        skey    : '',
+        soffset : 1,
+        limit   : 20
+    }
+
+    var Jdata,temp0;
+
+    //Get Data via GoogleVisualization API-ization
+    function GetDataFromGoogleVisualization(Pkey, Skey, Soffset, Slimit){
+        var query = new google.visualization.Query('http://spreadsheets.google.com/tq?key=' + Pkey + '&gid=6&range=A:E');
+        var keys = Skey.split(" ");
+        var SQL = "where ";
+        for(var i=0;i<keys.length;i++){
+            if(i>0){
+                SQL+="or ";
+            }
+            SQL+="upper(B) like '%"+keys[i].toUpperCase()+"%' ";
+        }
+        SQL = SQL + " limit " + Slimit + " offset " + Soffset;
+
+        query.setQuery(SQL);
+        query.send(function(response){
+            if(!response.isError()){
+                Jdata = JSON.parse(response.getDataTable().toJSON());
+                console.log(Jdata);
+                ShowJSONData();
+            }else{
+                $('footer').html('目前資料庫或網路出現錯誤，請稍後再試。');
+            }
+        });
+    }
+
+    function ShowJSONData(){
+        if (config.soffset==1){$('#search_result').html("<div class='result_tr'><div class='result_td resource'>來源</div><div class='result_td'></div><div class='result_td'>標題</div><div class='result_td timestamp'>時間戳記</div>");}
+        for (var i=0; i < Jdata.rows.length;  i++){
+                    //rows.c[0].v RSS from
+                    //rows.c[1].v Title
+                    //rows.c[2].v Url
+                    //rows.c[3].v Magnet
+                    //rows.c[4].v Timestamp
+
+            temp0 = "<div class='result_tr'>"
+                  +     "<div class='result_td'>"
+                  +         Jdata.rows[i].c[0].v //Data From
+                  +     "</div>"
+                  +     "<div class='result_td magnet'>";
+            if(!(Jdata.rows[i].c[3].v=='')){
+                temp0 = temp0
+                  +         "<a href='" + Jdata.rows[i].c[3].v + "' target='_self'><div>➲</div></a>";
+            }
+                         // +       JSONdata.rows[i].c[3].v //Magnet
+            temp0 = temp0
+                  +     "</div>"
+                  +     "<div class='result_td'>"
+                  +         "<a href='" + Jdata.rows[i].c[2].v + "' target='_blank'>"  + Jdata.rows[i].c[1].v + "</a>"
+                  +     "</div>"
+                  +     "<div class='result_td timestamp'>"
+                  +         Jdata.rows[i].c[4].v //Data From
+                  +     "</div>";
+
+            $('#search_result').append(temp0);
+        }
+        if (Jdata.rows.length < 20){
+            $('#more').hide();
+        }else{
+            $('#more').show();
+        }
+        config.soffset += config.limit;
+
+        $('#search').attr('value', 0).removeClass('focus');
+        $('#more').attr('value', 0).removeClass('focus');
+    }
+
+    function init(){
+        GetDataFromGoogleVisualization(config.pkey, config.skey , config.soffset, config.limit );
+
+    }
+
+    function btnsubmit(){
+        config.skey = $('input[name="key"]').val();
+        config.soffset = 1;
+        init();
+    }
+
+    //Enter Key Press
+    $('#key').keypress(function(event) {
+        /* Act on the event */
+        if(event.keyCode == 13) btnsubmit();
+    });
+
+
+    $('button').on('click', function(){
+        if ( $(this).is('#left') ){
+            if( $(this).attr('value')=='1' ){
+                $('#panel').removeClass('show');
+                $(this).attr('value', 0).removeClass('focus');
+            }else{
+                $('#panel').addClass('show');
+                $(this).attr('value', 1).addClass('focus');
+            }
+        }else if( $(this).is('#search') ){
+            if( $(this).attr('value')=='0' ){
+                btnsubmit();
+                $(this).attr('value', 1).addClass('focus');
+            }
+
+        }else if( $(this).is('#more') ){
+
+            if( $(this).attr('value')=='0' ){
+                init();
+                $(this).attr('value', 1).addClass('focus');
+            }
+            
+        }
+    })
+
+    //$( window ).resize(function() {
+    //    timestampcheck();
+    //});
+
+    //function timestampcheck(){
+    //   if($(window).width() >= 600 ){
+    //        $('.timestamp').show();
+    //    }else{
+    //        $('.timestamp').hide();
+    //    }
+    //}
+
+    //timestampcheck();
+
+});//]]>  
+</script>
+        <script type="text/javascript" src="//xinfan.disqus.com/embed.js" async></script>
+
+</head>
+<body>
+<div id='searchmon' class=''>
+    <nav>
+        <button id='left' type='button' value='0' class='icon-bars'> </button><input name='key' type='text' placeholder='Search' /><button id='search' type="button" class='icon-search' value='0'> </button>
+    </nav>
+    <div id='panel' class=''>
+        <h1>Setting</h1>
+        <p>
+        <label>RSS (Not supported yet.)</label>
+        <select name="rss"> 
+            <option value="" selected="selected">ALL</option>
+            <option value="動漫花園">動漫花園</option>
+            <option value="極影動漫">極影動漫</option>
+        </select>
+
+        </p>
+        <p>        
+        </p>
+    </div>
+    <article>
+        
+            <div id='search_result'>
+        <div class='result_tr'><div class='result_td resource'>來源</div><div class='result_td magnet'></div><div class='result_td'>標題</div><div class='result_td timestamp'>時間戳記</div></div>
+    </div>
+    <button id='more' type="button" class='icon-chevron-down' value='0'> </button>
+    <footer>
+        <h1>番組搜尋-M v1.2.2</h1>
+        <h2>Intro</h2>
+        <li>本頁面的資料庫和空間由 Google Drive 提供。</li>
+        <li>本頁面所有資訊取自於網路上，亦不利用網路硬碟等空間提供載點。</li>
+        <li>由於資料庫最近才建立，所以較舊資料可能會出現搜尋不到的現象。</li><br />
+        <h2>Update Log</h2>
+        <li>1.2.2
+            <ul>
+                <li>資料庫參照表格修正</li>
+            </ul>
+        </li>
+        <li>1.2.1
+            <ul>
+                <li>資料庫Same Check機制</li>
+            </ul>
+        </li>
+        <li>1.2
+            <ul>
+                <li>More 導入</li>
+            </ul>
+        </li>
+        <del><li>1.1
+            <ul>
+                <li>翻頁</li>
+            </ul>
+        </li></del>
+    </footer>
+    <div id="disqus_thread"></div>
+
+    <div id='Ad' style='width:468px;height:60px'>
+        <!-- 新番搜尋 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:468px;height:60px"
+             data-ad-client="ca-pub-5252576777158803"
+             data-ad-slot="3593833664"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    </article>
+</div>
+</body>
+</html>

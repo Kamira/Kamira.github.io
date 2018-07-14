@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>新番表</title>
+        <!-- API Loaded-->
+        <script type="text/javascript" src="js/jquery-2.0.2.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script type="text/javascript" src='js/api.js'></script>
+        <!-- Social -->
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <link rel="stylesheet" type="text/css" href="css/AllinOne.css">
+<!-- Comment System -->
+
+</head>
+<body>
+<div class="xinfan-day">
+    <div id="week-sun" class="week-day variableHeight">
+        <div id="week-sun-title" class="week-title1"><div><h1>Sunday</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>日曜日 / 星期日</h2></div>
+        <div id="week-sun-content" class="xinfan-daycontent variableHeight">
+            <div id="sun" class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>    
+    <div id="week-mon" class="week-day variableHeight">
+        <div id="week-mon-title" class="week-title1"><div><h1>Monday</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>月曜日 / 星期一</h2></div>
+        <div id="week-mon-content" class="xinfan-daycontent variableHeight">
+            <div id="mon" class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>
+    <div id="week-tue" class="week-day variableHeight">
+        <div id="week-tue-title" class="week-title1"><div><h1>Tuesday</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>火曜日 / 星期二</h2></div>
+        <div id="week-tue-content" class="xinfan-daycontent variableHeight">
+            <div id="tue" class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>   
+    <div id="week-wed" class="week-day variableHeight">
+        <div id="week-wed-title" class="week-title1"><div><h1>Wednesday</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>水曜日 / 星期三</h2></div>
+        <div id="week-wed-content" class="xinfan-daycontent variableHeight">
+            <div id="wed" class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>
+    <div id="week-thu" class="week-day variableHeight">
+        <div id="week-thu-title" class="week-title1"><div><h1>Thursday</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>木曜日 / 星期四</h2></div>
+        <div id="week-thu-content" class="xinfan-daycontent variableHeight">
+            <div id="thu" class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>   
+    <div id="week-fri" class="week-day variableHeight">
+        <div id="week-fri-title" class="week-title1"><div><h1>Friday</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>金曜日 / 星期五</h2></div>
+        <div id="week-fri-content" class="xinfan-daycontent variableHeight">
+            <div id="fri" class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>   
+    <div id="week-sat" class="week-day variableHeight">
+        <div id="week-sat-title" class="week-title1"><div><h1>Saturday</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>土曜日 / 星期六</h2></div>
+        <div id="week-sat-content" class="xinfan-daycontent variableHeight">
+            <div id="sat" class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>
+    <div id="week-oth" class="week-day variableHeight">
+        <div id="week-oth-title" class="week-title1"><div><h1>Other</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>その他 / 其他</h2></div>
+        <div id="week-oth-content" class="xinfan-daycontent variableHeight">
+            <div id="oth" class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>
+    <div id="week-com" class="week-day variableHeight">
+        <div id="week-com-title" class="week-title1"><div><h1>Comment</h1></div></div>
+        <div class="week-sidetitle variableHeight"><h2>コメント / 留言</h2></div>
+        <div id="week-com-content" class="xinfan-daycontent variableHeight">
+            <div class="xinfan-list variableHeight">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="navbar">
+    <div class="nav-day">
+        <span value="#week-sun">Sunday</span> | 
+        <span value="#week-mon">Monday</span> | 
+        <span value="#week-tue">Tuesday</span> | 
+        <span value="#week-wed">Wednesday</span> | 
+        <span value="#week-thu">Thursday</span> | 
+        <span value="#week-fri">Friday</span> | 
+        <span value="#week-sat">Saturday</span> | 
+        <span value="#week-oth">Other</span> | 
+        <span value="#week-com">Comment</span>
+    </div>
+    <div class="nav-text"><div class="gd-001">資料庫由Google Drive提供</div></div>
+</div>
+<div id="panel">
+    <div id="panelcontrol"></div>
+    <div id="addNew">
+        <h2>新番增加選單</h2>
+            <div class="element-input"><label>年度<span class="required">*</span></label><br>
+                <input type="text" name="input" required="required" id="inputyear"></div>
+            <div class="element-radio"><label>季<span class="required">*</span></label><br>
+                <div class="column4">
+                    <input type="radio" name="radio" value="冬" required="required" id="inputQ"><span>冬</span>
+                    <input type="radio" name="radio" value="春" required="required" id="inputQ"><span>春</span>
+                    <input type="radio" name="radio" value="夏" required="required" id="inputQ"><span>夏</span>
+                    <input type="radio" name="radio" value="秋" required="required" id="inputQ"><span>秋</span>
+                </div>
+            </div>
+            <div class="element-radio"><label>放送日<span class="required">*</span></label><br>
+                <div class="column7">
+                    <input type="radio" name="radio1" value="日" id="inputDay"><span>日</span>
+                    <input type="radio" name="radio1" value="一" id="inputDay"><span>一</span>
+                    <input type="radio" name="radio1" value="二" id="inputDay"><span>二</span>
+                    <input type="radio" name="radio1" value="三" id="inputDay"><span>三</span><br>
+                    <input type="radio" name="radio1" value="四" id="inputDay"><span>四</span>
+                    <input type="radio" name="radio1" value="五" id="inputDay"><span>五</span>
+                    <input type="radio" name="radio1" value="六" id="inputDay"><span>六</span>
+                    <input type="radio" name="radio1" value="他" id="inputDay"><span>他</span>
+                </div>
+            </div>
+            <div class="element-input"><label>譯名<span class="required">*</span></label><br>
+                <input type="text" name="input1" required="required" id="inputCN"></div>
+            <div class="element-input"><label>原名<span class="required">*</span></label><br>
+                <input type="text" name="input2" required="required" id="inputJP"></div>
+            <div class="element-input"><label>放送時間</label><br>
+                <input type="text" name="input5" id="inputRelease"></div>
+            <div class="element-input"><label>公式<span class="required">*</span></label><br>
+                <input type="text" name="input3" required="required" id="inputSite"></div>
+            <div class="element-input"><label>縮圖網址</label><br>
+                <input type="text" name="input4" id="inputTumb"></div>
+            <br><span id="submit"> 送出 </span>
+    </div>
+</div>
+<div class='gd-002'>本頁面目前測試中。目前版本為 v1.4</div>
+</body>
+        </html>
