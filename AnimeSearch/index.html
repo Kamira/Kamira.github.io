@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>新番搜尋</title>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		
+        <link rel="stylesheet" type="text/css" href="css/searchpage.css">
+        <!-- API Loaded-->
+        <script type="text/javascript" src="js/jquery-2.0.2.js"></script>
+        <script type="text/javascript" src="js/search.js"></script>
+</head>
+<body>
+
+    <div style='height:50px;'>
+    <div id='dashboard'>
+    <input type="text" id="key" style="400px">
+    <input type="button" value="搜尋" id="search_btn">
+    顯示
+    <select name="result_num" id="result_num">
+        <option value="10" selected="selected">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="75">75</option>
+        <option value="100">100</option>
+        <option value="250">250</option>
+        <option value="0">ALL</option>
+    </select>個結果
+</div>
+</div>
+    <div id='search_result'>
+        <div class='result_tr'><div class='result_td resource'>來源</div><div class='result_td magnet'></div><div class='result_td'>標題</div><div class='result_td timestamp'>時間戳記</div></div>
+    </div>
+	<div id='searchInformation'>
+	
+	</div>
+    <footer>
+        <h1>番組搜尋 v1.2</h1>
+        <h2>Intro</h2>
+        <li>本頁面的資料庫和空間由 Google Drive 提供。</li>
+        <li>單純演示用。</li><br />
+        <h2>Update Log</h2>
+        <li>1.3
+            <ul>
+                <li>更換資料庫及小型化(之前因為一直爬RSS爬到Google試算表開不出來)，最多項目為500筆</li>
+                <li>增加來源 - 旋風動漫</li>
+            </ul>
+        </li>
+        <li>1.2
+            <ul>
+                <li>功能修改 - 不分大小寫</li>
+                <li>增加來源 - KTXP</li>
+            </ul>
+        </li>
+        <li>1.1
+            <ul>
+                <li>UI Change</li>
+            </ul>
+        </li>
+    </footer>
+</body>
+</html>
