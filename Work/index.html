@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>作品集 / Collection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <link rel="stylesheet" href="css/block.css" />
+    <script src="js/block.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            var blocks = []
+            $.getJSON("work.json", function(response) {
+                console.log(response);
+                $.each(response, function(i) {
+
+                    // BLOCK(title, summary, picture, video, demo, source
+                    let x = response[i];
+                    blocks.push(new Block(x.title, x.summary, x.picture, x.video, x.demo, x.source, x.code, x.API));
+                    console.log(i + ";");
+                })
+                console.log(blocks);
+                blocks.forEach(function(i) {
+                    i.renderById("workCollection");
+                });
+
+
+                var figure = $(".video").hover(hoverVideo, hideVideo);
+
+                function hoverVideo(e) {
+                    $('video', this).css("background-color", "black");
+                    $('video', this).get(0).play();
+                }
+
+                function hideVideo(e) {
+                    $('video', this).get(0).pause();
+                }
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id="workCollection"></div>
+</body>
+
+</html>
