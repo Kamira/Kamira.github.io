@@ -12,32 +12,30 @@
         $(function() {
             var blocks = []
             $.getJSON("work.json", function(response) {
-                console.log(response);
                 $.each(response, function(i) {
 
                     // BLOCK(title, summary, picture, video, demo, source
                     let x = response[i];
                     blocks.push(new Block(x.title, x.summary, x.picture, x.video, x.demo, x.source, x.code, x.API));
-                    console.log(i + ";");
                 })
-                console.log(blocks);
                 blocks.forEach(function(i) {
                     i.renderById("workCollection");
                 });
 
 
-            })
-            $(document).on({
-                mouseenter: function(e) {
-                    $('video', this).css("background-color", "black");
-                    $('video', this).get(0).play();
-                },
+            }).complete(function() {
+                $(document).on({
+                    mouseenter: function(e) {
+                        $('video', this).css("background-color", "black");
+                        $('video', this).get(0).play();
+                    },
 
-                mouseleave: function(e) {
+                    mouseleave: function(e) {
 
-                    $('video', this).get(0).pause();
-                }
-            }, ".video");
+                        $('video', this).get(0).pause();
+                    }
+                }, ".video");
+            });
         })
     </script>
 </head>
