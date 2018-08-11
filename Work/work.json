@@ -17,7 +17,7 @@
         "API": [],
         "title": "一對一傳訊程式",
         "summary": "一個在網路程式設計課程中所作的小專題，輸入對方 IP 後利用 socket 進行訊息傳遞。",
-        "picture": "img/internetcommunication.PNG",
+        "picture": "img/internetcommunication.png",
         "video": "",
         "demo": "https://github.com/kamira/Internet_Communication/blob/master/Internet_Communication.exe",
         "source": "https://github.com/kamira/Internet_Communication"
@@ -100,7 +100,7 @@
         "code": ["Python"],
         "API": ["Pygame"],
         "title": "射擊遊戲",
-        "summary": "",
+        "summary": "嘗試使用 Python 搭配 Pygame 套件寫出一款簡單的遊戲。",
         "picture": "img/py-shooter.png",
         "video": "webm/py-shooter.webm",
         "demo": "",
