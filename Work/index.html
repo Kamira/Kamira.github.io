@@ -26,18 +26,18 @@
                 });
 
 
-                var figure = $(".video").hover(hoverVideo, hideVideo);
-
-                function hoverVideo(e) {
+            })
+            $(document).on({
+                mouseenter: function(e) {
                     $('video', this).css("background-color", "black");
                     $('video', this).get(0).play();
-                }
+                },
 
-                function hideVideo(e) {
+                mouseleave: function(e) {
+
                     $('video', this).get(0).pause();
                 }
-            })
-
+            }, ".video");
         })
     </script>
 </head>
