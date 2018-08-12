@@ -2,7 +2,8 @@ var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0
 var urlRegexp = new RegExp(urlExpression);
 
 class Block {
-    constructor(title, summary, picture, video, demo, source, code, api) {
+    constructor(year, title, summary, picture, video, demo, source, code, api) {
+            this._year = String(year);
             this._title = String(title);
             this._summary = String(summary);
             this._code = code;
@@ -21,6 +22,7 @@ class Block {
         let dom = document.getElementById(id);
         let newHTML = "";
         newHTML += "<div class='work-block'>"
+        newHTML += "    <div class='ribbon'>" + this._year + "</div>"
         if (this._picture != "Null") {
             newHTML += "<div class='video' style='background-image:url(" + this._picture + ");'>"
         } else {

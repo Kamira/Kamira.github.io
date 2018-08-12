@@ -8,6 +8,7 @@
     background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(224, 224, 224, 1) 100%);
     padding: 25px;
     float: left;
+    overflow: hidden;
 }
 
 .work-block a,
@@ -41,6 +42,21 @@
 .api {
     color: white;
     background: #2258bd;
+}
+
+.ribbon {
+    background-color: #a00;
+    color: white;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 18px #888;
+    border: 1px solid #faa;
+    padding: 10px 50px;
+    text-align: center;
+    text-shadow: 0 0 5px #444;
+    position: relative;
+    left: -130px;
+    top: -4px;
+    font: bold 100% 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 video,
