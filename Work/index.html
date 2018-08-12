@@ -16,7 +16,7 @@
 
                     // BLOCK(title, summary, picture, video, demo, source
                     let x = response[i];
-                    blocks.push(new Block(x.title, x.summary, x.picture, x.video, x.demo, x.source, x.code, x.API));
+                    blocks.push(new Block(x.year, x.title, x.summary, x.picture, x.video, x.demo, x.source, x.code, x.API));
                 })
                 blocks.forEach(function(i) {
                     i.renderById("workCollection");
